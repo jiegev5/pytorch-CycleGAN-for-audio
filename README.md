@@ -17,4 +17,5 @@ python test_spec.py --dataroot ./datasets/your_folder_name --name your_model_nam
 ```
 # Test Result
 Below is a instance of translated result using [Google speech command dataset](http://download.tensorflow.org/data/speech_commands_v0.01.tar.gz).
+
 <img src='imgs/translate_exp.jpg' width='400px'/>

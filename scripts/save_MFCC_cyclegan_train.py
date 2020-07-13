@@ -26,6 +26,8 @@ def compute_mfcc(data):
     std = np.std(data)
     print(f'mean is {mean}, std is {std}')
     data = (data - mean)/std
+    # scaled to -1 and 1
+    data = data/(np.abs(data).max())
     # max_ = data.max()
     # min_ = data.min()
     # data = (data - min_)/(max_-min_)
@@ -36,24 +38,11 @@ def compute_mfcc(data):
 in_len = 16000
 normalize = False
 for_cyclegan = True
-# root = "/data1/wenjie/github/honk/speech_dataset/house"
 dict_ = {
-        "/data1/wenjie/github/honk/speech_dataset_wenjie/meetingroom/loc2-45cm-10cmd/ATR/house":\
-        "/data1/wenjie/github/pytorch-CycleGAN-and-pix2pix/datasets/original2ATR_minmax",
-        "/data1/wenjie/github/honk/speech_dataset_wenjie/meetingroom/loc2-45cm-10cmd/maono/house":\
-        "/data1/wenjie/github/pytorch-CycleGAN-and-pix2pix/datasets/original2maono_minmax",
-        "/data1/wenjie/github/honk/speech_dataset_wenjie/meetingroom/loc2-45cm-10cmd/clipon/house":\
-        "/data1/wenjie/github/pytorch-CycleGAN-and-pix2pix/datasets/original2clipon_minmax",
-        "/data1/wenjie/github/honk/speech_dataset_wenjie/meetingroom/loc2-45cm-10cmd/USB/house":\
-        "/data1/wenjie/github/pytorch-CycleGAN-and-pix2pix/datasets/original2USB_minmax",
-        "/data1/wenjie/github/honk/speech_dataset_wenjie/meetingroom/loc2-45cm-10cmd/USBplug/house":\
-        "/data1/wenjie/github/pytorch-CycleGAN-and-pix2pix/datasets/original2USBplug_minmax"
+        "/your/path/to/audio folder":\
+        "/your/path/to/destination"
 }
-# root = "/data1/wenjie/github/honk/speech_dataset/house"
-# target_root = "/data1/wenjie/github/pytorch-CycleGAN-and-pix2pix/datasets/original2ATR_minmax"
-# target_root = "/data1/wenjie/github/honk/speech_dataset_wenjie/meetingroom/loc2-45cm-10cmd-v1/USB_minmax"
-# root = "/data1/wenjie/github/honk/speech_dataset_wenjie/original_testset"
-# target_root = "/data1/wenjie/github/honk/speech_dataset_wenjie/original_testset_npy_no_norm"
+
 s = time.time()
 for key in dict_.keys():
     root = key

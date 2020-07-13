@@ -25,35 +25,17 @@ def compute_mfcc(y):
     mean = np.mean(data)
     std = np.std(data)
     data = (data - mean)/std
-    # data = data/(np.abs(data).max())
+    data = data/(np.abs(data).max())
     print(f'mean is {mean}, std is {std}, shape is {data.shape}')
     return data.reshape(1, -1, 601)
 
 in_len = 16000*6
 normalize = False
 for_cyclegan = True
-# root = "/data1/wenjie/github/honk/speech_dataset/house"
 dict_ = {
-        # "/data1/wenjie/github/honk/speech_dataset/house":\
-        # "/data1/wenjie/github/pytorch-CycleGAN-and-pix2pix/datasets/original2ATR_spec_minmax"
-        # "/data1/wenjie/github/honk/speech_dataset_wenjie/meetingroom/loc2-45cm-10cmd/ATR/house":\
-        # "/data1/wenjie/github/pytorch-CycleGAN-and-pix2pix/datasets/original2ATR_spec_minmax"
-        # "/data1/wenjie/github/honk/speech_dataset_wenjie/meetingroom/loc2-45cm-10cmd/maono/house":\
-        # "/data1/wenjie/github/pytorch-CycleGAN-and-pix2pix/datasets/original2maono_minmax",
-        # "/data1/wenjie/github/honk/speech_dataset_wenjie/meetingroom/loc2-45cm-10cmd/clipon/house":\
-        # "/data1/wenjie/github/pytorch-CycleGAN-and-pix2pix/datasets/original2clipon_minmax",
-        # "/data1/wenjie/github/honk/speech_dataset_wenjie/meetingroom/loc2-45cm-10cmd/USB/house":\
-        # "/data1/wenjie/github/pytorch-CycleGAN-and-pix2pix/datasets/original2USB_minmax",
-        # "/data1/wenjie/github/honk/speech_dataset_wenjie/meetingroom/loc2-45cm-10cmd/USBplug/house":\
-        # "/data1/wenjie/github/pytorch-CycleGAN-and-pix2pix/datasets/ATR2USBplug_spec_minmax"
-        "/data2/wenjie/deepspeech.pytorch/librispeech/test_wj/cyclegan_train_1100/combined",
-        "/data1/wenjie/github/pytorch-CycleGAN-and-pix2pix/datasets/deepspeech_original2maono_extended"
+        "/your/path/to/audio folder":\
+        "/your/path/to/destination"
 }
-# root = "/data1/wenjie/github/honk/speech_dataset/house"
-# target_root = "/data1/wenjie/github/pytorch-CycleGAN-and-pix2pix/datasets/original2ATR_minmax"
-# target_root = "/data1/wenjie/github/honk/speech_dataset_wenjie/meetingroom/loc2-45cm-10cmd-v1/USB_minmax"
-# root = "/data1/wenjie/github/honk/speech_dataset_wenjie/original_testset"
-# target_root = "/data1/wenjie/github/honk/speech_dataset_wenjie/original_testset_npy_no_norm"
 s = time.time()
 for key in dict_.keys():
     root = key

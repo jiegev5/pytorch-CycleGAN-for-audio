@@ -2,12 +2,11 @@
 Enable audio translation using CycleGAN. This project is based from [pytorch-CycleGAN-and-pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix/blob/master/README.md) and modified from [cyclegan_audio](https://github.com/vicpc00/cyclegan_audio). Credits are given to those projects.
 
 # Usage
-In order to get CycleGAN work for audio, one need to convert audio to corresponding features (MFCC or spectrogram), save as .npy file. Below script help to convert ".wav" files into corresponding features
-and save to folders in a way that can be used for CycleGAN training (trainA,testA is splited in a 9:1 ratio)
+It does not directly translate audio in time domain. Instead, to make CycleGAN work for audio, we convert audio to corresponding features (MFCC or spectrogram) and save them as .npy file. Below script help to convert ".wav" files into corresponding features. The feature need to be saved to folder in a way that can be used for CycleGAN training (trainA,testA is splited in a 9:1 ratio)
 ```bash
-# feature is MFCC, need to change the source and destination in script
+# feature is MFCC, original audio is concatenated to 1-second long. Need to specify the source and destination in script
 python ./scripts/save_MFCC_cyclegan_train.py
-# feature is spectrogram, need to change the source and destination in script
+# feature is spectrogram, original audio is concatenated to 6-second long. Need to specify the source and destination in script
 python ./scripts/save_spec_cyclegan_train.py
 ```
 # Train and test

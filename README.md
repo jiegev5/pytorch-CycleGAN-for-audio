@@ -1,5 +1,5 @@
 # pytorch-CycleGAN-for-audio
-Enable audio translation using CycleGAN. This project is modified from [pytorch-CycleGAN-and-pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix/blob/master/README.md).
+Enable audio translation using CycleGAN. This project is based from [pytorch-CycleGAN-and-pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix/blob/master/README.md) and modified from [cyclegan_audio](https://github.com/vicpc00/cyclegan_audio). Credits are given to those projects.
 
 # Usage
 In order to get CycleGAN work for audio, one need to convert audio to corresponding features (MFCC or spectrogram), save as .npy file. Below script help to convert ".wav" files into corresponding features
